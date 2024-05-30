@@ -1,8 +1,8 @@
-﻿using AdminCreateUserDemo.Services.NewFolder.Interfaces;
+﻿using AdminCreateUserDemo.Services.Interfaces;
 using System.Net;
 using System.Net.Mail;
 
-namespace AdminCreateUserDemo.Services.NewFolder.Implementations
+namespace AdminCreateUserDemo.Services.Implementations
 {
     public sealed class EmailSender : IEmailSender
     {

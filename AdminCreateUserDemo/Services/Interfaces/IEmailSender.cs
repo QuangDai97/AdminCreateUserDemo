@@ -1,4 +1,4 @@
-﻿namespace AdminCreateUserDemo.Services.NewFolder.Interfaces
+﻿namespace AdminCreateUserDemo.Services.Interfaces
 {
     public interface IEmailSender
     {
