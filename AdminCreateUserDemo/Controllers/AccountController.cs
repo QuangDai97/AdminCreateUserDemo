@@ -93,16 +93,30 @@ namespace AdminCreateUserDemo.Controllers
                     await _userManager.UpdateAsync(user);
 
                     await _signInManager.RefreshSignInAsync(user);
-                    return RedirectToAction("Index", "Home");
-                }
 
+                    // Check if user is an admin
+                    bool isAdminResult = await _userManager.IsInRoleAsync(user, "Admin");
+
+                    return Json(new
+                    {
+                        success = true,
+                        isAdmin = isAdminResult
+                    });
+                }
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    //ModelState.AddModelError(string.Empty, error.Description);
+                    return Json(new
+                    {
+                        success = false
+                    });
                 }
             }
 
-            return View(model);
-        }
+                return Json(new
+                {
+                    success = false
+                });
+            }
     }
 }

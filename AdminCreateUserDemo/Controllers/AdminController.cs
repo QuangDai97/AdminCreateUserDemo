@@ -1,6 +1,6 @@
 ﻿using AdminCreateUserDemo.Data;
 using AdminCreateUserDemo.Models;
-using AdminCreateUserDemo.Services.NewFolder.Interfaces;
+using AdminCreateUserDemo.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -72,7 +72,7 @@ namespace AdminCreateUserDemo.Controllers
             if (result.Succeeded)
             {
                 var temporaryPassword = "B@" + (Guid.NewGuid().ToString("N").Substring(0, 4));
-                var a = await _userManager.AddPasswordAsync(user, temporaryPassword);
+               var a =  await _userManager.AddPasswordAsync(user, temporaryPassword);
                 await _emailSender.SendEmailAsync(user.Email, "Temporary Password", $"Your temporary password is {temporaryPassword}");
 
                 return RedirectToAction("Login","Account", new {isCheck = 1});

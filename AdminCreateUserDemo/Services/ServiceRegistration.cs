@@ -1,5 +1,5 @@
-﻿using AdminCreateUserDemo.Services.NewFolder.Implementations;
-using AdminCreateUserDemo.Services.NewFolder.Interfaces;
+﻿using AdminCreateUserDemo.Services.Implementations;
+using AdminCreateUserDemo.Services.Interfaces;
 
 namespace AdminCreateUserDemo.Services
 {
