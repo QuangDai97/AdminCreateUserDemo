@@ -34,6 +34,7 @@
     <script>
 
         var isCheck = @ViewBag.IsCheck;
+        //Trường hợp xác nhận email
         if (isCheck == 1) {
             document.addEventListener('DOMContentLoaded', function () {
                 Swal.fire({
@@ -45,6 +46,7 @@
             });
         }
         else if (isCheck == 2) {
+            //Trường hợp đăng nhập sai thông tin.
             document.addEventListener('DOMContentLoaded', function () {
                 Swal.fire({
                     title: 'Warning!',

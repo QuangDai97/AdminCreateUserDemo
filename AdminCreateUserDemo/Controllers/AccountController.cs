@@ -53,11 +53,10 @@ namespace AdminCreateUserDemo.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                //ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                return RedirectToAction("Login", "Account", new { isCheck = 2});
+                return RedirectToAction("Login", "Account", new { isCheck = 2 }); //Trường hợp login sai thống tin
             }
 
-            return View(model);
+            return RedirectToAction("Login", "Account", new { isCheck = 2 });
         }
 
         [HttpGet]
@@ -100,23 +99,29 @@ namespace AdminCreateUserDemo.Controllers
                     return Json(new
                     {
                         success = true,
-                        isAdmin = isAdminResult
+                        isAdmin = isAdminResult,
+                        message = "changed password successfully"
                     });
                 }
-                foreach (var error in result.Errors)
+                else
                 {
-                    //ModelState.AddModelError(string.Empty, error.Description);
+                    string errorMessage = "Password change failed. Errors: ";
+                    foreach (var error in result.Errors)
+                    {
+                        errorMessage += error.Description + " ";
+                    }
                     return Json(new
                     {
-                        success = false
+                        success = false,
+                        message = errorMessage
                     });
                 }
             }
 
-                return Json(new
-                {
-                    success = false
-                });
-            }
+            return Json(new
+            {
+                success = false
+            });
+        }
     }
 }
