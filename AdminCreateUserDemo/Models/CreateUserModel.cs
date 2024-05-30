@@ -1,5 +1,4 @@
-﻿using AdminCreateUserDemo.Validate;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AdminCreateUserDemo.Models
 {
