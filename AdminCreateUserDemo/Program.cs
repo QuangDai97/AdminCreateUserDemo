@@ -1,9 +1,7 @@
 using AdminCreateUserDemo.Data;
-using AdminCreateUserDemo.Middleware;
 using AdminCreateUserDemo.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -67,8 +65,6 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.UseForceChangePassword();
 
 app.MapControllerRoute(
     name: "default",
